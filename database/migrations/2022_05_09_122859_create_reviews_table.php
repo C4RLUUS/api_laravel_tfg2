@@ -15,15 +15,13 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user'); 
-            $table->integer('id_producto'); 
+            $table->foreignId('user_id')->constrained('usuarios');
+            $table->foreignId('id_producto')->constrained('productos');
             $table->text('descripcion'); 
             $table->float('rating'); 
-            $table->tinyint('deleted'); 
+            $table->boolean('deleted'); 
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id')->on('usuarios');
-            $table->foreign('id_producto')->references('id')->on('productos');
         });
     }
 
