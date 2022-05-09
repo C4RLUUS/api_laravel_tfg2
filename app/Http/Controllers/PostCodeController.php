@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
+use App\Models\PostCode;
 use Illuminate\Http\Request;
 
-class ReviewController extends Controller
+class PostCodeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +17,16 @@ class ReviewController extends Controller
         //GET
 
         $all=[];
-        if($all=Review::all()){
+        if($all=PostCode::all()){
             $datajson = [
                 'code' => 200,
                 'message' => 'Listado creado con exito',
-                'review' => $all
+                'postcode' => $all
             ];
         }else{
             $datajson = [
                 'code' => 400,
-                'message' => 'Error al cargar las opiniones',
+                'message' => 'Error al cargar los codigos postales',
             ];
         }
         return response()->json($datajson, $datajson['code']); 
@@ -52,16 +52,16 @@ class ReviewController extends Controller
     {
         //POST
         $datajson=[];
-        if($article = Review::create($request->all())){
+        if($article = PostCode::create($request->all())){
             $datajson = [
                 'code' => 200,
-                'message' => 'Review creado con exito',
-                'review' => $article
+                'message' => 'Codiogo postal creado con exito',
+                'postcode' => $article
             ];
         }else{
             $datajson = [
                 'code' => 400,
-                'message' => 'Error al crear la review',
+                'message' => 'Error al crear el codigo postal',
             ];
         }
         return response()->json($datajson, 201);
@@ -95,19 +95,19 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Review $id)
+    public function update(Request $request,PostCode $id)
     {
         //PUT 
 
         if($id->update($request->all())){
             $datajson = [
                 'code' => 200,
-                'message' => 'Review actualizado con exito',
+                'message' => 'Codigo postal actualizado con exito',
             ];
         }else{
             $datajson = [
                 'code' => 400,
-                'message' => 'Error al actualizar review',
+                'message' => 'Error al actualizar el codigo postal',
             ];
         }
         return response()->json($datajson, $datajson['code']);
@@ -122,20 +122,5 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function sacar_review_alojamiento($id){
-
-        $query = Review::query();
-            $query->select('reviews.*');
-            $query->where('reviews.id_producto', $id);
-            $response = $query->get();
-
-        $datajson = [
-            'code' => 200,
-            'message' => 'Consulta realizada con exito',
-            'review' => $response,
-        ];
-        return response()->json($datajson, $datajson['code']); 
     }
 }
