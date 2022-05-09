@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
+use App\Models\ImagenesProductos;
 use Illuminate\Http\Request;
 
-class ReviewController extends Controller
+class ImagenesProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,21 +15,20 @@ class ReviewController extends Controller
     public function index()
     {
         //GET
-
         $all=[];
-        if($all=Review::all()){
+        if($all=ImagenesProductos::all()){
             $datajson = [
                 'code' => 200,
                 'message' => 'Listado creado con exito',
-                'review' => $all
+                'imagen' => $all
             ];
         }else{
             $datajson = [
                 'code' => 400,
-                'message' => 'Error al cargar las opiniones',
+                'message' => 'Error al cargar las imagenes',
             ];
         }
-        return response()->json($datajson, $datajson['code']); 
+        return response()->json($datajson, $datajson['code']);
     }
 
     /**
@@ -52,16 +51,16 @@ class ReviewController extends Controller
     {
         //POST
         $datajson=[];
-        if($article = Review::create($request->all())){
+        if($article = ImagenesProductos::create($request->all())){
             $datajson = [
                 'code' => 200,
-                'message' => 'Review creado con exito',
-                'review' => $article
+                'message' => 'Imagen creada con exito',
+                'imagen' => $article
             ];
         }else{
             $datajson = [
                 'code' => 400,
-                'message' => 'Error al crear la review',
+                'message' => 'Error al crear imagen',
             ];
         }
         return response()->json($datajson, 201);
@@ -70,12 +69,18 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ImagenesProductos $id)
     {
-        //
+        //Get By Id 
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'usuario' => $id
+        ];
+        return response()->json($datajson, $datajson['code']); 
     }
 
     /**
@@ -93,24 +98,23 @@ class ReviewController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Review $id)
+    public function update(Request $request, ImagenesProductos $id)
     {
-        //PUT 
-
-        if($id->update($request->all())){
+       //PUT
+       if($id->update($request->all())){
             $datajson = [
                 'code' => 200,
-                'message' => 'Review actualizado con exito',
+                'message' => 'Imagen actualizada con exito',
             ];
         }else{
             $datajson = [
                 'code' => 400,
-                'message' => 'Error al actualizar review',
+                'message' => 'Error al actualizar imagen',
             ];
         }
-        return response()->json($datajson, $datajson['code']);
     }
 
     /**
@@ -124,17 +128,17 @@ class ReviewController extends Controller
         //
     }
 
-    public function sacar_review_productos($id){
+    public function sacar_imagen_productos($id){
 
-        $query = Review::query();
-            $query->select('reviews.*');
-            $query->where('reviews.id_producto', $id);
+        $query = ImagenesProductos::query();
+            $query->select('imagenes_productos.*');
+            $query->where('imagenes_productos.id_producto', $id);
             $response = $query->get();
 
         $datajson = [
             'code' => 200,
             'message' => 'Consulta realizada con exito',
-            'review' => $response,
+            'imagen' => $response,
         ];
         return response()->json($datajson, $datajson['code']); 
     }
