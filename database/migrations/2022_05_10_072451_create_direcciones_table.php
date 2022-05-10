@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('proviencia'); 
             $table->string('ciudad'); 
             $table->string('postcode'); 
-            $table->string('direccion'); 
-            $table->string('direccion_facturacion');
+            $table->string('direccion1', 128); 
+            $table->string('direccion2',128);
             $table->integer('telefono'); 
             $table->string('dni'); 
             $table->string('firstName'); 

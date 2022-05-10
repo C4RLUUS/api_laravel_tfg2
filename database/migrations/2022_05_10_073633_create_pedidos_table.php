@@ -17,15 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('usuarios'); 
             $table->foreignId('id_carrito')->constrained('carritos'); 
-            $table->string('direccion'); 
-            $table->string('direccion_facturacion'); 
+            $table->foreignId('id_direccion')->constrained('direcciones'); 
             $table->string('current_state'); 
             $table->float('precio_total'); 
             $table->integer('productos_total'); 
             $table->timestamps();
-
-            $table->foreign('direccion')->references('direccion')->on('direcciones'); 
-            $table->foreign('direccion_facturacion')->references('direccion_facturacion')->on('direcciones'); 
         });
     }
 
