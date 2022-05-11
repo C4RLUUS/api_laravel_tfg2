@@ -20,8 +20,8 @@ return new class extends Migration
             $table->float('precio'); 
             $table->integer('stock'); 
             $table->integer('low_stock_alert'); 
-            $table->boolean('active'); 
-            $table->boolean('deleted'); 
+            $table->boolean('active')->default(1); 
+            $table->boolean('deleted')->default(0); 
             $table->timestamps();
         });
     }

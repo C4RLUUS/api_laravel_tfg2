@@ -21,8 +21,7 @@ return new class extends Migration
             $table->string('password'); 
             $table->integer('rango'); 
             $table->integer('telefono'); 
-            $table->boolean('is_guest'); 
-            $table->boolean('deleted'); 
+            $table->boolean('deleted')->default(0); 
             $table->timestamps();
         });
     }

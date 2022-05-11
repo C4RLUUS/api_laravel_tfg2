@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->longText('image'); 
             $table->foreignId('id_producto')->constrained('productos');
-            $table->boolean('active'); 
-            $table->boolean('deleted'); 
+            $table->boolean('active')->default(1); 
+            $table->boolean('deleted')->default(0); 
             $table->timestamps();
         });
     }

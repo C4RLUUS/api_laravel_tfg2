@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('id_producto')->constrained('productos');
             $table->text('descripcion'); 
             $table->float('rating'); 
-            $table->boolean('deleted'); 
+            $table->boolean('deleted')->default(0); 
             $table->timestamps();
 
         });

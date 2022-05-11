@@ -145,7 +145,7 @@ class UsuarioController extends Controller
 
         $query = Usuario::query();
             $query->select('usuarios.*');
-            $query->where('usuarios.deleted', "0");
+            $query->where('usuarios.deleted', 0);
             $response = $query->get();
 
         $datajson = [

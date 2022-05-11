@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('postcodes', function (Blueprint $table) {
             $table->id();
             $table->string('code'); 
-            $table->boolean('deleted'); 
+            $table->boolean('deleted')->default(0); 
             $table->timestamps();
         });
     }

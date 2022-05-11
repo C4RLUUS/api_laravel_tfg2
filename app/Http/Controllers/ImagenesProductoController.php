@@ -133,6 +133,8 @@ class ImagenesProductoController extends Controller
         $query = ImagenesProductos::query();
             $query->select('imagenes_productos.*');
             $query->where('imagenes_productos.id_producto', $id);
+            $query->where('imagenes_productos.active',1);
+            $query->where('imagenes_productos.deleted', 0);
             $response = $query->get();
 
         $datajson = [

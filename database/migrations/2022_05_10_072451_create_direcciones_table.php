@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('dni'); 
             $table->string('firstName'); 
             $table->string('lastName'); 
-            $table->boolean('deleted'); 
+            $table->boolean('deleted')->default(0); 
             $table->timestamps();
         });
     }
