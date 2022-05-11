@@ -127,4 +127,18 @@ class DireccionController extends Controller
     {
         //
     }
+    public function sacar_direccion_activos(){
+
+        $query = Direccion::query();
+            $query->select('direcciones.*');
+            $query->where('direcciones.deleted', 0);
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'imagen' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+    }
 }

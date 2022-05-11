@@ -127,4 +127,18 @@ class PedidoController extends Controller
     {
         //
     }
+    public function sacar_pedido_pagados(){
+
+        $query = Pedido::query();
+            $query->select('pedidos.*');
+            $query->where('pedidos.current_state', "ejecutado");
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'usuario' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+    }
 }

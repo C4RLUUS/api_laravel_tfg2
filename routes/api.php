@@ -40,6 +40,37 @@ Route::post('/imagenesProductos/crear', 'App\Http\Controllers\ImagenesProductoCo
 Route::put('/imagenesProductos/editar/{id}', 'App\Http\Controllers\ImagenesProductoController@update'); //put
 Route::get('/imagenesProductos/listar/activos', 'App\Http\Controllers\ImagenesProductoController@sacar_imagen_productos'); 
 
+/*POST CODES*/
+Route::get('/postcodes/listar', 'App\Http\Controllers\PostCodeController@index'); //mostrar todos los registros
+Route::post('/postCodes/crear', 'App\Http\Controllers\PostCodeController@store'); //agregar registro
+Route::put('/postCodes/editar/{id}', 'App\Http\Controllers\PostCodeController@update'); //put
+Route::get('/postCodes/listar/activos', 'App\Http\Controllers\PostCodeController@sacar_postcode_activos'); 
+
+/*DIRECCION*/
+Route::get('/direcciones/listar', 'App\Http\Controllers\DireccionController@index'); //mostrar todos los registros
+Route::post('/direcciones/crear', 'App\Http\Controllers\DireccionController@store'); //agregar registro
+Route::put('/direcciones/editar/{id}', 'App\Http\Controllers\DireccionController@update'); //put
+Route::get('/direcciones/listar/activos', 'App\Http\Controllers\DireccionController@sacar_direccion_activos'); 
+
+/*CARRITO*/
+Route::get('/carritos/listar', 'App\Http\Controllers\CarritoController@index'); //mostrar todos los registros
+Route::post('/carritos/crear', 'App\Http\Controllers\CarritoController@store'); //agregar registro
+Route::put('/carritos/editar/{id}', 'App\Http\Controllers\CarritoController@update'); //put
+Route::get('/carritos/ver/{id}', 'App\Http\Controllers\CarritoController@show'); 
+
+/*CARRITO_PRODUCTOS*/
+Route::get('/carritosProductos/listar', 'App\Http\Controllers\CarritoProductoController@index'); //mostrar todos los registros
+Route::post('/carritosProductos/crear', 'App\Http\Controllers\CarritoProductoController@store'); //agregar registro
+
+/*PEDIDO*/
+Route::get('/pedidos/listar', 'App\Http\Controllers\PedidoController@index'); //mostrar todos los registros
+Route::post('/pedidos/crear', 'App\Http\Controllers\PedidoController@store'); //agregar registro
+Route::put('/pedidos/editar/{id}', 'App\Http\Controllers\PedidoController@update'); //put
+Route::get('/pedidos/listar/pagados', 'App\Http\Controllers\PedidoController@sacar_pedido_pagados'); 
+
+/*PEDIDO_DETALLES*/
+Route::get('/pedidoDetalles/listar', 'App\Http\Controllers\PedidoDetallesController@index'); //mostrar todos los registros
+Route::post('/pedidoDetalles/crear', 'App\Http\Controllers\PedidoDetallesController@store'); //agregar registro
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

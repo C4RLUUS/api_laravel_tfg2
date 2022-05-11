@@ -123,4 +123,18 @@ class PostCodeController extends Controller
     {
         //
     }
+    public function sacar_postcode_activos(){
+
+        $query = PostCode::query();
+            $query->select('postcodes.*');
+            $query->where('postcodes.deleted', 0);
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'imagen' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+    }
 }
