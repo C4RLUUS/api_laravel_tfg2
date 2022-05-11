@@ -141,4 +141,20 @@ class ProductoController extends Controller
 
         return response()->json($datajson, $datajson['code']); 
     }
+
+    public function sacar_productos_activos(){
+
+        $query = Producto::query();
+            $query->select('productos.*');
+            $query->where('productos.active', 1);
+            $query->where('productos.deleted', 0);
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'usuario' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+}
 }

@@ -129,6 +129,7 @@ class ReviewController extends Controller
         $query = Review::query();
             $query->select('reviews.*');
             $query->where('reviews.id_producto', $id);
+            $query->where('reviews.deleted', 0);
             $response = $query->get();
 
         $datajson = [
