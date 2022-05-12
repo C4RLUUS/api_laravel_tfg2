@@ -38,7 +38,7 @@ Route::get('/productos/listar/activos', 'App\Http\Controllers\ProductoController
 Route::get('/imagenesProductos/listar', 'App\Http\Controllers\ImagenesProductoController@index'); //mostrar todos los registros
 Route::post('/imagenesProductos/crear', 'App\Http\Controllers\ImagenesProductoController@store'); //agregar registro
 Route::put('/imagenesProductos/editar/{id}', 'App\Http\Controllers\ImagenesProductoController@update'); //put
-Route::get('/imagenesProductos/listar/activos', 'App\Http\Controllers\ImagenesProductoController@sacar_imagen_productos'); 
+Route::get('/imagenesProductos/listar/productos/{id}', 'App\Http\Controllers\ImagenesProductoController@sacar_imagen_productos'); 
 
 /*POST CODES*/
 Route::get('/postcodes/listar', 'App\Http\Controllers\PostCodeController@index'); //mostrar todos los registros
