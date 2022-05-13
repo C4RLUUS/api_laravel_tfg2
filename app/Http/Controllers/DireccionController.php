@@ -69,17 +69,12 @@ class DireccionController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Direccion $id)
+    public function show($id)
     {
-        //Get By Id 
-        $datajson = [
-            'code' => 200,
-            'message' => 'Consulta realizada con exito',
-            'direccion' => $id
-        ];
-        return response()->json($datajson, $datajson['code']); 
+        //
     }
 
     /**
@@ -97,6 +92,7 @@ class DireccionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,Direccion $id)

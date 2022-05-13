@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('postcodes');
         Schema::create('postcodes', function (Blueprint $table) {
             $table->id();
             $table->string('code'); 

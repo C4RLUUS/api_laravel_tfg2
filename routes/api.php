@@ -69,8 +69,8 @@ Route::put('/pedidos/editar/{id}', 'App\Http\Controllers\PedidoController@update
 Route::get('/pedidos/listar/pagados', 'App\Http\Controllers\PedidoController@sacar_pedido_pagados'); 
 
 /*PEDIDO_DETALLES*/
-Route::get('/pedidoDetalles/listar', 'App\Http\Controllers\PedidoDetallesController@index'); //mostrar todos los registros
-Route::post('/pedidoDetalles/crear', 'App\Http\Controllers\PedidoDetallesController@store'); //agregar registro
+Route::get('/pedidoDetalles/listar', 'App\Http\Controllers\PedidoDetalleController@index'); //mostrar todos los registros
+Route::post('/pedidoDetalles/crear', 'App\Http\Controllers\PedidoDetalleController@store'); //agregar registro
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

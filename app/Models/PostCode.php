@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostCode extends Model
 {
+    protected $table = 'postcodes';
     use HasFactory;
     protected $fillable = ['code', 'deleted']; 
 }

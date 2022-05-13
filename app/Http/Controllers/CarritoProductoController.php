@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Carrito_Producto;
+use App\Models\CarritoProducto;
 use Illuminate\Http\Request;
 
 class CarritoProductoController extends Controller
@@ -16,7 +16,7 @@ class CarritoProductoController extends Controller
     {
         //GET
         $all=[];
-        if($all=Carrito_Producto::all()){
+        if($all=CarritoProducto::all()){
             $datajson = [
                 'code' => 200,
                 'message' => 'Listado creado con exito',
@@ -28,7 +28,7 @@ class CarritoProductoController extends Controller
                 'message' => 'Error al cargar carrito_productos',
             ];
         }
-        return response()->json($datajson, $datajson['code']); 
+        return response()->json($datajson, $datajson['code']);
     }
 
     /**
@@ -49,9 +49,9 @@ class CarritoProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //POST
+        //POST 
         $datajson=[];
-        if($article = Carrito_Producto::create($request->all())){
+        if($article = CarritoProducto::create($request->all())){
             $datajson = [
                 'code' => 200,
                 'message' => 'Carrito_Productos creado con exito',

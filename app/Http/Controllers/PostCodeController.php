@@ -15,7 +15,6 @@ class PostCodeController extends Controller
     public function index()
     {
         //GET
-
         $all=[];
         if($all=PostCode::all()){
             $datajson = [
@@ -50,12 +49,12 @@ class PostCodeController extends Controller
      */
     public function store(Request $request)
     {
-        //POST
+        //POST 
         $datajson=[];
         if($article = PostCode::create($request->all())){
             $datajson = [
                 'code' => 200,
-                'message' => 'Codiogo postal creado con exito',
+                'message' => 'Codigo postal creado con exito',
                 'postcode' => $article
             ];
         }else{
@@ -93,12 +92,12 @@ class PostCodeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,PostCode $id)
     {
-        //PUT 
-
+        //PUT
         if($id->update($request->all())){
             $datajson = [
                 'code' => 200,
