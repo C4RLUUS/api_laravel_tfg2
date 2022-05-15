@@ -42,9 +42,9 @@ Route::get('/imagenesProductos/listar/productos/{id}', 'App\Http\Controllers\Ima
 
 /*POST CODES*/
 Route::get('/postcodes/listar', 'App\Http\Controllers\PostCodeController@index'); //mostrar todos los registros
-Route::post('/postCodes/crear', 'App\Http\Controllers\PostCodeController@store'); //agregar registro
-Route::put('/postCodes/editar/{id}', 'App\Http\Controllers\PostCodeController@update'); //put
-Route::get('/postCodes/listar/activos', 'App\Http\Controllers\PostCodeController@sacar_postcode_activos'); 
+Route::post('/postcodes/crear', 'App\Http\Controllers\PostCodeController@store'); //agregar registro
+Route::put('/postcodes/editar/{id}', 'App\Http\Controllers\PostCodeController@update'); //put
+Route::get('/postcodes/listar/activos', 'App\Http\Controllers\PostCodeController@sacar_postcode_activos'); 
 
 /*DIRECCION*/
 Route::get('/direcciones/listar', 'App\Http\Controllers\DireccionController@index'); //mostrar todos los registros
