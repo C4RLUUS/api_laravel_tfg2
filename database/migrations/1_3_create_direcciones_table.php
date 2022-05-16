@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::drop('direccions');
-        Schema::create('direcciones', function (Blueprint $table) {
+
+        Schema::create('direccions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user')->constrained('usuarios'); 
             $table->string('pais'); 
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('direcciones');
+        Schema::dropIfExists('direccions');
     }
 };

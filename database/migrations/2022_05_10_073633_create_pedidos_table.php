@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('usuarios'); 
             $table->foreignId('id_carrito')->constrained('carritos'); 
-            $table->foreignId('id_direccion')->constrained('direcciones'); 
+            $table->foreignId('id_direccion')->constrained('direccions'); 
             $table->string('current_state'); 
             $table->float('precio_total'); 
             $table->integer('productos_total'); 
