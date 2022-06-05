@@ -123,17 +123,34 @@ class DireccionController extends Controller
     {
         //
     }
-    public function sacar_direccion_activos(){
+    public function sacar_direccion_activos($id){
 
         $query = Direccion::query();
-            $query->select('direcciones.*');
-            $query->where('direcciones.deleted', 0);
+            $query->select('direccions.*');
+            $query->where('direccions.id_user', $id); 
+            $query->where('direccions.deleted', 0);
             $response = $query->get();
 
         $datajson = [
             'code' => 200,
             'message' => 'Consulta realizada con exito',
-            'imagen' => $response,
+            'direccion' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+    }
+
+    public function direccion_de_user($id_user, $id_direccion){
+
+        $query = Direccion::query();
+            $query->select('direccions.*');
+            $query->where('direccions.id_user', $id_user); 
+            $query->where('direccions.id', $id_direccion);
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'direccion' => $response,
         ];
         return response()->json($datajson, $datajson['code']); 
     }

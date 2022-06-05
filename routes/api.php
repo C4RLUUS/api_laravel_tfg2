@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 /*USUARIOS*/
 Route::get('/usuarios/listar', 'App\Http\Controllers\UsuarioController@index'); //mostrar todos los registros
 Route::post('/usuarios/crear', 'App\Http\Controllers\UsuarioController@store'); //agregar registro
+Route::get('/usuarios/mostrar/{id}', 'App\Http\Controllers\UsuarioController@show');
+Route::get('/usuarios/verificar/{email}', 'App\Http\Controllers\UsuarioController@emailVerification');
 Route::put('/usuarios/editar/{id}', 'App\Http\Controllers\UsuarioController@update'); //put
 Route::get('/usuarios/listar/activos', 'App\Http\Controllers\UsuarioController@sacar_usuarios_activos'); 
 
@@ -29,7 +31,8 @@ Route::put('reviews/editar/{id}', 'App\Http\Controllers\ReviewController@update'
 Route::get('reviews/listar/produtos/{id}', 'App\Http\Controllers\ReviewController@sacar_review_productos');
 
 /*PRODUCTOS*/
-Route::get('/productos/listar', 'App\Http\Controllers\ProductoController@index'); //mostrar todos los registros
+Route::get('/productos/listar', 'App\Http\Controllers\ProductoController@index');
+Route::get('/productos/mostrar/{id}', 'App\Http\Controllers\ProductoController@show');  //mostrar todos los registros
 Route::post('/productos/crear', 'App\Http\Controllers\ProductoController@store'); //agregar registro
 Route::put('/productos/editar/{id}', 'App\Http\Controllers\ProductoController@update'); //put
 Route::get('/productos/listar/activos', 'App\Http\Controllers\ProductoController@sacar_productos_activos'); 
@@ -50,7 +53,8 @@ Route::get('/postcodes/listar/activos', 'App\Http\Controllers\PostCodeController
 Route::get('/direcciones/listar', 'App\Http\Controllers\DireccionController@index'); //mostrar todos los registros
 Route::post('/direcciones/crear', 'App\Http\Controllers\DireccionController@store'); //agregar registro
 Route::put('/direcciones/editar/{id}', 'App\Http\Controllers\DireccionController@update'); //put
-Route::get('/direcciones/listar/activos', 'App\Http\Controllers\DireccionController@sacar_direccion_activos'); 
+Route::get('/direcciones/listar/activos/{id}', 'App\Http\Controllers\DireccionController@sacar_direccion_activos'); 
+Route::get('/direcciones/mostrar/{id_user}/{id_direccion}', 'App\Http\Controllers\DireccionController@direccion_de_user'); 
 
 /*CARRITO*/
 Route::get('/carritos/listar', 'App\Http\Controllers\CarritoController@index'); //mostrar todos los registros

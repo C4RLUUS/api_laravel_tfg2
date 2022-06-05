@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-
+        // cambiar proviencias
         Schema::create('direccions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user')->constrained('usuarios'); 

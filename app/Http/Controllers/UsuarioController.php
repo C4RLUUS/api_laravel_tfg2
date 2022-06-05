@@ -155,4 +155,19 @@ class UsuarioController extends Controller
         ];
         return response()->json($datajson, $datajson['code']); 
     }
+
+    public function emailVerification($email){
+
+        $query = Usuario::query();
+            $query->select('usuarios.*');
+            $query->where('usuarios.email',$email);
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'usuario' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+    }
 }

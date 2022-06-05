@@ -86,12 +86,12 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -153,7 +153,7 @@ class ProductoController extends Controller
         $datajson = [
             'code' => 200,
             'message' => 'Consulta realizada con exito',
-            'usuario' => $response,
+            'producto' => $response,
         ];
         return response()->json($datajson, $datajson['code']); 
 }

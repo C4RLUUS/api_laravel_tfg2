@@ -19,6 +19,11 @@ return new class extends Migration
             $table->text('descripcion'); 
             $table->float('precio'); 
             $table->integer('stock'); 
+            $table->text('imagen'); 
+            $table->boolean('dulce'); 
+            $table->boolean('salado');
+            $table->boolean('frio'); 
+            $table->boolean('caliente'); 
             $table->integer('low_stock_alert'); 
             $table->boolean('active')->default(1); 
             $table->boolean('deleted')->default(0); 
