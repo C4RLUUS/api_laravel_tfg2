@@ -29,6 +29,7 @@ Route::post('reviews/crear', 'App\Http\Controllers\ReviewController@store');
 Route::get('reviews/mostrar/{id}', 'App\Http\Controllers\ReviewController@show');
 Route::put('reviews/editar/{id}', 'App\Http\Controllers\ReviewController@update'); 
 Route::get('reviews/listar/produtos/{id}', 'App\Http\Controllers\ReviewController@sacar_review_productos');
+Route::get('reviews/avg/produtos/{id}', 'App\Http\Controllers\ReviewController@avg_rating_producto');
 
 /*PRODUCTOS*/
 Route::get('/productos/listar', 'App\Http\Controllers\ProductoController@index');

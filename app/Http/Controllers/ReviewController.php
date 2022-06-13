@@ -139,4 +139,19 @@ class ReviewController extends Controller
         ];
         return response()->json($datajson, $datajson['code']); 
     }
+    public function avg_rating_producto($id){
+
+        $query = Review::query();
+            $query->selectRaw('avg(reviews.rating) as avgrating');
+            $query->where('reviews.id_producto', $id);
+            $query->where('reviews.deleted', 0);
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'review' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+    }
 }
