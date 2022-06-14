@@ -56,4 +56,19 @@ class PedidoDetalleController extends Controller
         }
         return response()->json($datajson, 201);
     }
+
+    public function productos_pedido($id){
+
+        $query = PedidoDetalle::query();
+            $query->select('pedidos_detalles.*');
+            $query->where('pedidos_detalles.id_pedido', $id);
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'pedido_detalle' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+    }
 }

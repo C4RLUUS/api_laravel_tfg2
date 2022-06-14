@@ -137,7 +137,22 @@ class PedidoController extends Controller
         $datajson = [
             'code' => 200,
             'message' => 'Consulta realizada con exito',
-            'usuario' => $response,
+            'pedido' => $response,
+        ];
+        return response()->json($datajson, $datajson['code']); 
+    }
+
+    public function pedido_user($id){
+
+        $query = Pedido::query();
+            $query->select('pedidos.*');
+            $query->where('pedidos.id_user', $id);
+            $response = $query->get();
+
+        $datajson = [
+            'code' => 200,
+            'message' => 'Consulta realizada con exito',
+            'pedido' => $response,
         ];
         return response()->json($datajson, $datajson['code']); 
     }
